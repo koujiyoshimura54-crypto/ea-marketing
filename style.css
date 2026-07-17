@@ -1,0 +1,198 @@
+:root{
+  --gray-100:#f2f2f2;
+  --gray-200:#e4e4e4;
+  --gray-300:#d0d0d0;
+  --gray-400:#b8b8b8;
+  --gray-500:#9a9a9a;
+  --gray-600:#7a7a7a;
+  --line:#999;
+  --text:#333;
+  --label:#666;
+}
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{
+  font-family: "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+  color:var(--text);
+  background:#fafafa;
+  display:flex;
+  justify-content:center;
+}
+.device{
+  width:100%;
+  max-width:420px;
+  background:#fff;
+  border-left:1px solid var(--line);
+  border-right:1px solid var(--line);
+  min-height:100vh;
+  position:relative;
+  padding-bottom:70px;
+}
+
+.section{
+  position:relative;
+  padding:32px 20px;
+  border-bottom:1px dashed var(--line);
+}
+.section-label{
+  position:absolute;
+  top:6px;
+  left:0px;
+  font-size:10px;
+  letter-spacing:0.05em;
+  color:#fff;
+  background:#555;
+  padding:2px 8px;
+  font-family: monospace;
+}
+.h1-box, .h2-box{
+  background:var(--gray-200);
+  border:1px dashed var(--line);
+  padding:12px 14px;
+  margin-bottom:12px;
+  font-weight:bold;
+}
+.h1-box{ font-size:19px; line-height:1.5; }
+.h2-box{ font-size:16px; }
+.sub-box{
+  background:var(--gray-100);
+  border:1px dashed var(--line);
+  padding:10px 14px;
+  font-size:13px;
+  line-height:1.7;
+  color:var(--label);
+  margin-bottom:14px;
+}
+
+/* 未確定の画像=グレー斜線プレースホルダー（本当に写真が必要だが未調達の箇所） */
+.placeholder-img{
+  background: repeating-linear-gradient(
+    45deg, var(--gray-300), var(--gray-300) 10px, var(--gray-200) 10px, var(--gray-200) 20px
+  );
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:12px;
+  text-align:center;
+}
+
+.real-photo{
+  width:100%;
+  display:block;
+  object-fit:cover;
+  border:1px solid var(--line);
+}
+.avatar-photo{
+  width:64px; height:64px;
+  border-radius:50%;
+  object-fit:cover;
+  border:1px solid var(--line);
+  flex-shrink:0;
+}
+.photo-tag{
+  display:inline-block;
+  font-size:9px;
+  background:#2c4a63;
+  color:#fff;
+  padding:2px 6px;
+  margin-bottom:4px;
+  font-family:monospace;
+}
+.todo-tag{
+  display:inline-block;
+  font-size:9px;
+  background:#a33;
+  color:#fff;
+  padding:2px 6px;
+  margin-bottom:4px;
+  font-family:monospace;
+}
+
+.badge-row{ display:flex; gap:8px; margin-bottom:16px; }
+.badge{
+  flex:1; background:var(--gray-200); border:1px solid var(--line);
+  text-align:center; font-size:11px; padding:8px 4px; line-height:1.4;
+}
+.badge b{ display:block; font-size:14px; }
+
+.btn{
+  display:block; width:100%; text-align:center;
+  background:var(--gray-400); border:1px solid #666; color:#222;
+  font-weight:bold; padding:14px; font-size:14px;
+  cursor:pointer;
+}
+.btn-note{ text-align:center; font-size:11px; color:var(--label); margin-top:6px; }
+
+.check-item{
+  display:flex; gap:10px; align-items:flex-start;
+  background:var(--gray-100); border:1px solid var(--line);
+  padding:10px 12px; margin-bottom:8px; font-size:13px;
+  cursor:pointer;
+}
+.check-box{ width:16px; height:16px; border:1px solid #666; flex-shrink:0; margin-top:2px; position:relative; }
+.check-box.checked::after{
+  content:"✓";
+  position:absolute; top:-4px; left:1px;
+  font-size:14px; font-weight:bold; color:#333;
+}
+.callout{
+  background:var(--gray-300); border:1px dashed #666;
+  padding:10px 12px; font-size:12px; text-align:center; margin-top:10px;
+}
+
+.col2{ display:flex; flex-direction:column; gap:12px; }
+.pillar-card{ border:1px solid var(--line); background:var(--gray-100); padding:14px; }
+.pillar-icon{ width:40px; height:40px; margin-bottom:8px; }
+.pillar-title{ font-weight:bold; font-size:14px; margin:6px 0; }
+.pillar-desc{ font-size:12px; color:var(--label); line-height:1.6; }
+
+.service-item{
+  display:flex; gap:12px; align-items:center;
+  border:1px solid var(--line); padding:10px 12px; margin-bottom:8px; background:#fff;
+}
+.service-icon{ width:32px; height:32px; flex-shrink:0; }
+.service-text{ font-size:13px; }
+
+.case-card{ background:var(--gray-200); border:2px solid #555; padding:16px; }
+.case-tag{ display:inline-block; font-size:10px; background:#555; color:#fff; padding:2px 6px; margin-bottom:8px; }
+.case-photo-wrap{ margin-bottom:10px; }
+.case-stats{ display:flex; gap:8px; margin:12px 0; }
+.case-stat{ flex:1; background:#fff; border:1px dashed var(--line); text-align:center; padding:8px 4px; font-size:11px; }
+.quote-box{ border-left:3px solid #666; padding-left:10px; font-size:12px; font-style:italic; color:var(--label); }
+
+.flow-step{ display:flex; gap:12px; margin-bottom:14px; }
+.flow-num{
+  width:28px; height:28px; border-radius:50%; background:var(--gray-400); border:1px solid #666;
+  display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:bold; flex-shrink:0;
+}
+.flow-content b{ font-size:13px; display:block; margin-bottom:2px; }
+.flow-content span{ font-size:12px; color:var(--label); }
+
+.faq-item{ border:1px solid var(--line); margin-bottom:8px; }
+.faq-q{
+  background:var(--gray-200); padding:10px 12px; font-size:13px; font-weight:bold;
+  display:flex; justify-content:space-between; cursor:pointer;
+  user-select:none;
+}
+.faq-a{
+  padding:10px 12px; font-size:12px; color:var(--label); background:#fff;
+  display:none;
+}
+.faq-item.open .faq-a{ display:block; }
+.faq-item.open .faq-q span{ transform:rotate(45deg); display:inline-block; }
+
+.company-box{ display:flex; gap:12px; align-items:flex-start; }
+.company-text{ font-size:12px; line-height:1.7; }
+.company-text b{ font-size:13px; display:block; margin-bottom:4px;}
+
+.footer{ padding:20px; font-size:11px; color:var(--label); text-align:center; line-height:1.8; }
+
+.sticky-cta{
+  position:fixed; bottom:0; left:50%; transform:translateX(-50%);
+  width:100%; max-width:420px; background:#fff; border-top:1px solid var(--line);
+  padding:10px 16px; z-index:100;
+}
+.sticky-cta .btn{ padding:12px; font-size:13px; }
+
+.note{ font-size:10px; color:#a33; margin-top:6px; font-family: monospace; }
