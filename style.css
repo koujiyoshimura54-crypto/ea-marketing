@@ -157,33 +157,37 @@ body{
   width:100%;
   max-width:1240px;
   margin:0 auto;
-  padding:120px 24px 100px;
+  padding:100px 24px 90px;
 }
 .hero-copy{ max-width:600px; }
 .hero-copy h1{
-  font-size:26px;
+  font-size:24px;
   font-weight:800;
   line-height:1.55;
   letter-spacing:0.01em;
-  margin-bottom:22px;
+  margin-bottom:20px;
   color:#fff;
 }
 .hero-copy p{
-  font-size:14px;
-  line-height:1.95;
+  font-size:13.5px;
+  line-height:1.9;
   color:rgba(255,255,255,0.92);
-  margin-bottom:32px;
+  margin-bottom:28px;
 }
 .hero-copy .btn{
-  display:inline-block;
-  width:auto;
-  padding:16px 44px;
+  display:block;
+  width:100%;
 }
 
 @media (min-width:600px){
   .hero-inner{ padding:140px 48px 120px; }
   .hero-copy h1{ font-size:34px; }
   .hero-copy p{ font-size:15.5px; max-width:520px; }
+  .hero-copy .btn{
+    display:inline-block;
+    width:auto;
+    padding:16px 44px;
+  }
 }
 @media (min-width:1024px){
   .hero-inner{ padding:0 100px; max-width:1400px; }
