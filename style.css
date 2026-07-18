@@ -16,7 +16,7 @@
   --radius-sm:10px;
 }
 *{ box-sizing:border-box; margin:0; padding:0; }
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; overflow-x:hidden; }
 body{
   font-family: "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
   color:var(--text);
@@ -24,6 +24,7 @@ body{
   display:flex;
   justify-content:center;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 .device{
   width:100%;
@@ -33,7 +34,6 @@ body{
   position:relative;
   padding-bottom:76px;
   box-shadow:0 0 60px rgba(0,0,0,0.12);
-  overflow:hidden;
 }
 
 /* ---- セクション共通 ---- */
@@ -121,7 +121,79 @@ body{
   font-family:monospace;
 }
 
-/* ---- Hero 実績バッジ ---- */
+/* ---- HERO（フルブリード背景画像） ---- */
+.hero{
+  position:relative;
+  width:100vw;
+  left:50%;
+  transform:translateX(-50%);
+  min-height:100vh;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background-image:url('images/hero-bg.jpg');
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+}
+.hero::before{
+  /* 可読性のための暗いオーバーレイ（ブランドのネイビーを軸に30%前後） */
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(115deg, rgba(10,20,34,0.62) 0%, rgba(10,20,34,0.34) 45%, rgba(10,20,34,0.22) 100%);
+  z-index:1;
+}
+.hero::after{
+  /* スクロールで次のセクションへ自然に繋げるフェード */
+  content:"";
+  position:absolute; left:0; right:0; bottom:0; height:120px;
+  background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, var(--bg-alt) 100%);
+  z-index:1;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1240px;
+  margin:0 auto;
+  padding:120px 24px 100px;
+}
+.hero-copy{ max-width:600px; }
+.hero-copy h1{
+  font-size:26px;
+  font-weight:800;
+  line-height:1.55;
+  letter-spacing:0.01em;
+  margin-bottom:22px;
+  color:#fff;
+}
+.hero-copy p{
+  font-size:14px;
+  line-height:1.95;
+  color:rgba(255,255,255,0.92);
+  margin-bottom:32px;
+}
+.hero-copy .btn{
+  display:inline-block;
+  width:auto;
+  padding:16px 44px;
+}
+
+@media (min-width:600px){
+  .hero-inner{ padding:140px 48px 120px; }
+  .hero-copy h1{ font-size:34px; }
+  .hero-copy p{ font-size:15.5px; max-width:520px; }
+}
+@media (min-width:1024px){
+  .hero-inner{ padding:0 100px; max-width:1400px; }
+  .hero-copy h1{ font-size:48px; }
+  .hero-copy p{ font-size:17px; max-width:540px; }
+  .hero-copy .btn{ padding:18px 52px; font-size:16px; }
+}
+@media (min-width:1024px) and (min-height:1px){
+  .hero{ align-items:center; }
+}
 .badge-row{ display:flex; gap:10px; margin-bottom:24px; }
 .badge{
   flex:1;
