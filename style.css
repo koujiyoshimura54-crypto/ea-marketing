@@ -187,6 +187,72 @@ body{
 .company-text b{ font-size:13px; display:block; margin-bottom:4px;}
 
 .footer{ padding:20px; font-size:11px; color:var(--label); text-align:center; line-height:1.8; }
+.footer a{ color:var(--label); text-decoration:underline; }
+.footer a:hover{ color:#1E3A5F; }
+
+/* ---- 規約系ページ（プライバシーポリシー・会社概要・特定商取引法） ---- */
+.legal-wrap{
+  max-width:420px;
+  margin:0 auto;
+  padding:32px 20px 60px;
+  font-size:13px;
+  line-height:1.85;
+  border-left:1px solid var(--line);
+  border-right:1px solid var(--line);
+  background:#fff;
+  min-height:100vh;
+}
+.legal-wrap h1{
+  font-size:18px;
+  background:var(--gray-200);
+  border:1px dashed var(--line);
+  padding:12px 14px;
+  margin-bottom:20px;
+}
+.legal-wrap h2{
+  font-size:14px;
+  margin:26px 0 10px;
+  border-left:3px solid #1E3A5F;
+  padding-left:8px;
+}
+.legal-wrap p{ margin-bottom:12px; color:var(--text); }
+.legal-wrap ul, .legal-wrap ol{ margin:0 0 12px 20px; color:var(--text); }
+.legal-wrap li{ margin-bottom:6px; }
+.legal-wrap table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+  margin-bottom:16px;
+}
+.legal-wrap table th, .legal-wrap table td{
+  border:1px solid var(--line);
+  padding:10px;
+  text-align:left;
+  vertical-align:top;
+}
+.legal-wrap table th{
+  background:var(--gray-100);
+  width:32%;
+  font-weight:bold;
+}
+.legal-wrap .updated{
+  font-size:11px;
+  color:var(--label);
+  text-align:right;
+  margin-bottom:8px;
+}
+.legal-wrap .back-link{
+  display:inline-block;
+  margin-top:24px;
+  font-size:12px;
+  color:var(--label);
+  text-decoration:underline;
+}
+.legal-wrap .logo-mini{
+  height:36px;
+  margin-bottom:20px;
+  display:block;
+}
 
 .sticky-cta{
   position:fixed; bottom:0; left:50%; transform:translateX(-50%);
