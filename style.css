@@ -21,14 +21,13 @@ body{
   font-family: "Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
   color:var(--text);
   background:#eef0f2;
-  display:flex;
-  justify-content:center;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
 .device{
   width:100%;
   max-width:440px;
+  margin:0 auto;
   background:var(--bg);
   min-height:100vh;
   position:relative;
@@ -121,12 +120,10 @@ body{
   font-family:monospace;
 }
 
-/* ---- HERO（フルブリード背景画像） ---- */
+/* ---- HERO（.deviceの外に置かれた、素直な画面幅いっぱいのブロック） ---- */
 .hero{
   position:relative;
-  width:100vw;
-  left:50%;
-  transform:translateX(-50%);
+  width:100%;
   min-height:100vh;
   min-height:100svh;
   display:flex;
