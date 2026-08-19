@@ -198,3 +198,15 @@ button{font:inherit}
 .creative-cta-copy .btn{
   margin:0 auto;
 }
+
+
+/* ---- E&A Creative branding ---- */
+.hero-brand{display:inline-flex;align-items:center;background:rgba(255,255,255,.92);padding:10px 13px;margin-bottom:20px;backdrop-filter:blur(6px)}
+.hero-brand img{display:block;width:150px;height:auto}
+.brand-cta-panel{text-align:center;background:#f1ece2}
+.brand-cta-logo{display:flex;justify-content:center;margin:0 auto 24px}
+.brand-cta-logo img{width:190px;max-width:78%;height:auto}
+.brand-cta-panel .section-label{text-align:center}
+.brand-cta-panel .h2-box{text-align:center}
+.brand-cta-panel p{font-size:13px;line-height:1.95;color:rgba(30,40,48,.72);margin-bottom:26px}
+.legal-wrap .logo-mini{height:auto;width:150px;max-width:70%;object-fit:contain}
