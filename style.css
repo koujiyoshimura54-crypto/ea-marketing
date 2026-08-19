@@ -680,3 +680,205 @@ html,body{
     width:100% !important;
   }
 }
+
+
+/* ===== SERVICE GRID FIX : browser / tablet ===== */
+@media (min-width:681px){
+  .service-section .container{
+    overflow:visible !important;
+  }
+
+  .service-map{
+    position:relative !important;
+    display:grid !important;
+    grid-template-columns:minmax(260px, 1fr) 220px minmax(260px, 1fr) !important;
+    grid-template-rows:auto 54px 220px !important;
+    column-gap:42px !important;
+    row-gap:0 !important;
+    align-items:center !important;
+    width:100% !important;
+    max-width:980px !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin:42px auto 0 !important;
+  }
+
+  .service-node,
+  .service-hub{
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    margin:0 !important;
+  }
+
+  .service-movie{
+    grid-column:2 !important;
+    grid-row:1 !important;
+    width:340px !important;
+    justify-self:center !important;
+    align-self:start !important;
+  }
+
+  .service-hub{
+    grid-column:2 !important;
+    grid-row:3 !important;
+    width:220px !important;
+    height:220px !important;
+    justify-self:center !important;
+    align-self:center !important;
+    border:18px solid var(--gold) !important;
+    border-radius:50% !important;
+    background:#fff !important;
+    display:grid !important;
+    place-items:center !important;
+    z-index:3 !important;
+  }
+
+  .service-hub img{
+    width:150px !important;
+    height:126px !important;
+    object-fit:contain !important;
+  }
+
+  .service-sns{
+    grid-column:1 !important;
+    grid-row:3 !important;
+    width:100% !important;
+    max-width:340px !important;
+    justify-self:end !important;
+    align-self:center !important;
+  }
+
+  .service-brand{
+    grid-column:3 !important;
+    grid-row:3 !important;
+    width:100% !important;
+    max-width:340px !important;
+    justify-self:start !important;
+    align-self:center !important;
+  }
+
+  .service-node{
+    min-height:126px !important;
+    display:flex !important;
+    align-items:center !important;
+    gap:18px !important;
+    padding:20px !important;
+    background:#fff !important;
+    border-radius:24px !important;
+    box-shadow:var(--shadow) !important;
+    z-index:4 !important;
+  }
+
+  .service-node h3{
+    font-size:18px !important;
+    line-height:1.35 !important;
+    word-break:keep-all !important;
+    overflow-wrap:normal !important;
+  }
+
+  .service-node p{
+    word-break:normal !important;
+    overflow-wrap:anywhere !important;
+  }
+
+  /* Connector lines positioned relative to grid */
+  .map-line{
+    display:block !important;
+    position:absolute !important;
+    z-index:1 !important;
+    background:#637488 !important;
+    transform-origin:center !important;
+  }
+
+  .line-top{
+    width:2px !important;
+    height:54px !important;
+    left:50% !important;
+    top:126px !important;
+    transform:translateX(-50%) !important;
+  }
+
+  .line-left{
+    width:52px !important;
+    height:2px !important;
+    left:calc(50% - 152px) !important;
+    top:calc(180px + 110px) !important;
+    transform:rotate(-15deg) !important;
+  }
+
+  .line-right{
+    width:52px !important;
+    height:2px !important;
+    right:calc(50% - 152px) !important;
+    left:auto !important;
+    top:calc(180px + 110px) !important;
+    transform:rotate(15deg) !important;
+  }
+
+  .service-note{
+    margin-top:34px !important;
+  }
+}
+
+/* Tablet: keep the same idea without squeezing the side cards */
+@media (min-width:681px) and (max-width:900px){
+  .service-map{
+    grid-template-columns:1fr 180px 1fr !important;
+    grid-template-rows:auto 42px 180px auto !important;
+    column-gap:18px !important;
+  }
+
+  .service-movie{
+    width:min(340px, 92vw) !important;
+  }
+
+  .service-hub{
+    width:180px !important;
+    height:180px !important;
+    border-width:14px !important;
+  }
+
+  .service-hub img{
+    width:120px !important;
+    height:100px !important;
+  }
+
+  .service-sns,
+  .service-brand{
+    max-width:none !important;
+    width:100% !important;
+  }
+
+  .service-node{
+    padding:15px !important;
+    gap:12px !important;
+  }
+
+  .service-node h3{
+    font-size:15px !important;
+  }
+
+  .service-node p{
+    font-size:10.5px !important;
+  }
+
+  .service-node-icon{
+    flex:0 0 50px !important;
+    height:50px !important;
+    font-size:22px !important;
+  }
+
+  .line-top{
+    height:42px !important;
+    top:126px !important;
+  }
+
+  .line-left,
+  .line-right{
+    display:none !important;
+  }
+}
