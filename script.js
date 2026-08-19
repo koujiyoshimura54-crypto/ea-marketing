@@ -1,35 +1,23 @@
-// FAQアコーディオンの開閉（滑らかなmax-height遷移はCSSで制御）
 document.querySelectorAll('.faq-item').forEach(function(item){
   const q = item.querySelector('.faq-q');
   q.addEventListener('click', function(){
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if(!isOpen){ item.classList.add('open'); }
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(other){ other.classList.remove('open'); });
+    if(!open) item.classList.add('open');
   });
 });
 
-// Problemチェックリストのタップ動作（自分ごと化の疑似体験）
-document.querySelectorAll('.check-item').forEach(function(item){
-  item.addEventListener('click', function(){
-    const box = item.querySelector('.check-box');
-    box.classList.toggle('checked');
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNav = document.querySelector('.mobile-nav');
+if(menuBtn && mobileNav){
+  menuBtn.addEventListener('click', function(){
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
   });
-});
-
-// スクロールに応じたセクションのフェードイン演出
-const sections = document.querySelectorAll('.section');
-if('IntersectionObserver' in window){
-  const observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
+  mobileNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
     });
-  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-  sections.forEach(function(sec){ observer.observe(sec); });
-} else {
-  // 非対応ブラウザは即表示
-  sections.forEach(function(sec){ sec.classList.add('is-visible'); });
+  });
 }
