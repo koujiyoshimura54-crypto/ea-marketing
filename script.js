@@ -24,18 +24,52 @@ if(menuBtn && mobileNav){
 
 const contactForm = document.querySelector('#contactForm');
 if(contactForm){
-  contactForm.addEventListener('submit', function(event){
+  contactForm.addEventListener('submit', async function(event){
     event.preventDefault();
+
+    const submitButton = contactForm.querySelector('.contact-submit');
+    const originalText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = '送信中...';
+
     const data = new FormData(contactForm);
-    alert([
-      '以下の内容でよろしいですか？','',
-      '会社名・法人名：' + (data.get('company') || ''),
-      'お名前：' + (data.get('name') || ''),
-      'メールアドレス：' + (data.get('email') || ''),
-      '電話番号：' + (data.get('tel') || '未入力'),
-      'お問い合わせ項目：' + (data.get('category') || ''),'',
-      'お問い合わせ内容：', data.get('message') || '',
-      '', '※現在は入力内容の確認まで実装しています。'
-    ].join('\\n'));
+    const payload = {
+      company: data.get('company'),
+      name: data.get('name'),
+      email: data.get('email'),
+      tel: data.get('tel'),
+      category: data.get('category'),
+      message: data.get('message')
+    };
+
+    try {
+      const response = await fetch('https://ea-contact-form.koujiyoshimura54.workers.dev', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if(!response.ok || !result.success){
+        throw new Error(result.error || '送信に失敗しました。');
+      }
+
+      contactForm.innerHTML = `
+        <div class="contact-success" role="status">
+          <div class="contact-success-icon">✓</div>
+          <h3>お問い合わせを受け付けました</h3>
+          <p>
+            お問い合わせいただきありがとうございます。<br>
+            ご入力いただいたメールアドレスへ受付完了メールをお送りしました。<br>
+            内容を確認のうえ、担当者よりご連絡いたします。
+          </p>
+        </div>
+      `;
+    } catch(error) {
+      console.error(error);
+      alert('送信に失敗しました。時間をおいて再度お試しください。');
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
   });
 }
