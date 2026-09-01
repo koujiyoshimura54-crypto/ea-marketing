@@ -21,3 +21,21 @@ if(menuBtn && mobileNav){
     });
   });
 }
+
+const contactForm = document.querySelector('#contactForm');
+if(contactForm){
+  contactForm.addEventListener('submit', function(event){
+    event.preventDefault();
+    const data = new FormData(contactForm);
+    alert([
+      '以下の内容でよろしいですか？','',
+      '会社名・法人名：' + (data.get('company') || ''),
+      'お名前：' + (data.get('name') || ''),
+      'メールアドレス：' + (data.get('email') || ''),
+      '電話番号：' + (data.get('tel') || '未入力'),
+      'お問い合わせ項目：' + (data.get('category') || ''),'',
+      'お問い合わせ内容：', data.get('message') || '',
+      '', '※現在は入力内容の確認まで実装しています。'
+    ].join('\\n'));
+  });
+}
